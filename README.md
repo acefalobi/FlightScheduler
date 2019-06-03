@@ -1,8 +1,5 @@
 # Flight Scheduler
 
-<img src="SCREENDATA/GIF1.gif" width="250" />
-
-
 #### Android app that let's you find and schedule flights across countries.
 
 ### Used libraries and technologies

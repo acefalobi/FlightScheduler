@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+def credentials = rootProject.file("credentials.properties")
+def credentialProperty = new Properties()
+credentialProperty.load(new FileInputStream(credentials))
+
+android {
+
+    androidExtensions {
+        experimental = true
+    }
+
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId "com.aceinteract.flightscheduler"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "LUFTHANSA_CLIENT_ID", credentialProperty['LUFTHANSA_CLIENT_ID'])
+        buildConfigField("String", "LUFTHANSA_CLIENT_SECRET", credentialProperty['LUFTHANSA_CLIENT_SECRET'])
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled !project.hasProperty('android.injected.invoked.from.ide')
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+}
+
+dependencies {
+    implementation projectDependencies.support.app_compat
+    implementation projectDependencies.support.recyclerview
+    implementation projectDependencies.support.cardview
+    implementation projectDependencies.support.design
+    implementation projectDependencies.support.core_ktx
+    implementation projectDependencies.navigation.fragment_ktx
+    implementation projectDependencies.constraint_layout
+
+    implementation projectDependencies.android_maps
+    implementation projectDependencies.google_maps
+    implementation projectDependencies.google_location
+
+    implementation projectDependencies.lifecycle.runtime
+    implementation projectDependencies.lifecycle.extensions
+
+    implementation projectDependencies.retrofit.runtime
+    implementation projectDependencies.retrofit.gson
+    implementation projectDependencies.retrofit.mock
+
+    implementation projectDependencies.kotlin.stdlib
+
+    implementation projectDependencies.koin.android
+    implementation projectDependencies.koin.scope
+    implementation projectDependencies.koin.viewmodel
+
+    implementation projectDependencies.coroutines
+    implementation projectDependencies.coroutines_adapter
+
+    implementation projectDependencies.timber
+
+    kapt projectDependencies.room.compiler
+    kapt projectDependencies.lifecycle.compiler
+
+    testImplementation projectDependencies.junit
+    testImplementation projectDependencies.mock_web_server
+    testImplementation projectDependencies.arch_core.testing
+    testImplementation projectDependencies.mockito.core
+    testImplementation projectDependencies.mockito.inline
+    testImplementation projectDependencies.mockito_kotlin
+
+    androidTestImplementation projectDependencies.android_test.runner
+    androidTestImplementation projectDependencies.android_test.rules
+
+    androidTestImplementation projectDependencies.support.app_compat
+    androidTestImplementation projectDependencies.support.recyclerview
+    androidTestImplementation projectDependencies.support.cardview
+    androidTestImplementation projectDependencies.support.design
+
+    androidTestImplementation projectDependencies.espresso.core
+    androidTestImplementation projectDependencies.espresso.contrib
+
+    androidTestImplementation projectDependencies.arch_core.testing
+    androidTestImplementation projectDependencies.mockito.core
+    androidTestImplementation projectDependencies.mockito.android
+}

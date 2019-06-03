@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        
+        <variable
+                name="airport"
+                type="com.aceinteract.flightscheduler.data.entity.Airport"/>
+        
+    </data>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:paddingStart="@dimen/list_item_padding_horiz"
+            android:paddingEnd="@dimen/list_item_padding_horiz"
+            android:paddingTop="@dimen/list_item_padding_vert"
+            android:paddingBottom="@dimen/list_item_padding_vert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/text_airport_name"
+                android:text="@{airport.name + ` (` + airport.code + `)`}"
+                android:textColor="@android:color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                tools:text="Lagos International Airport (LIA)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/text_airport_location"
+                android:text="@{airport.state + `, ` + airport.country}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                tools:text="Lagos, Nigeria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</layout>

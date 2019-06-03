@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.airport.NearestAirportsFragment">
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="com.aceinteract.flightscheduler.ui.airport.NearestAirportsViewModel"/>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+                android:id="@+id/toolbar_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/floating_toolbar_margin"
+                app:cardElevation="@dimen/floating_toolbar_elevation"
+                app:cardCornerRadius="@dimen/floating_toolbar_radius"
+                app:cardBackgroundColor="@android:color/white">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="?attr/actionBarSize">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_search_origin"
+                            android:paddingTop="@dimen/widget_padding"
+                            android:paddingBottom="@dimen/widget_padding"
+                            android:paddingEnd="@dimen/widget_padding"
+                            android:paddingStart="0dp"
+                            android:textSize="@dimen/floating_toolbar_title_size"
+                            android:hint="@string/hint_search_origin"
+                            android:inputType="text"
+                            android:text="@={viewModel.queryString}"
+                            android:drawableStart="@drawable/ic_search_black_24dp"
+                            android:drawablePadding="@dimen/widget_default_drawable_padding"
+                            android:background="@android:color/transparent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                </androidx.appcompat.widget.Toolbar>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_airports_search"
+                        tools:listitem="@layout/airport_list_item"
+                        isGone="@{viewModel.queryString.length() == 0}"
+                        items="@{viewModel.searchAirports}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <fragment
+                android:id="@+id/map_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+        <ProgressBar
+                isGone="@{!viewModel.isLoading}"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:indeterminate="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

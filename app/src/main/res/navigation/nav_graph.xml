@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/nearestAirportsFragment">
+
+    <fragment android:id="@+id/nearestAirportsFragment"
+              android:name="com.aceinteract.flightscheduler.ui.airport.NearestAirportsFragment"
+              android:label="Nearest Airports" tools:layout="@layout/nearest_airports_fragment">
+        <action android:id="@+id/action_nearestAirportsFragment_to_flightFinderFragment"
+                app:destination="@id/flightFinderFragment" app:enterAnim="@anim/anim_slide_right_enter"
+                app:exitAnim="@anim/anim_slide_left_exit" app:popEnterAnim="@anim/anim_slide_left_enter"
+                app:popExitAnim="@anim/anim_slide_right_exit"/>
+    </fragment>
+
+    <fragment android:id="@+id/flightFinderFragment"
+              android:name="com.aceinteract.flightscheduler.ui.flight.finder.FlightFinderFragment"
+              android:label="Flight Finder" tools:layout="@layout/flight_finder_fragment">
+        <action android:id="@+id/action_flightFinderFragment_to_flightScheduleFragment"
+                app:destination="@id/flightScheduleFragment" app:enterAnim="@anim/anim_slide_right_enter"
+                app:exitAnim="@anim/anim_slide_left_exit" app:popEnterAnim="@anim/anim_slide_left_enter"
+                app:popExitAnim="@anim/anim_slide_right_exit"/>
+    </fragment>
+
+    <fragment android:id="@+id/flightScheduleFragment"
+              android:name="com.aceinteract.flightscheduler.ui.flight.schedule.FlightScheduleFragment"
+              android:label="Flight Schedules" tools:layout="@layout/flight_schedule_fragment">
+        <action android:id="@+id/action_flightScheduleFragment_to_flightScheduleMapFragment"
+                app:destination="@id/flightScheduleMapFragment" app:enterAnim="@anim/anim_slide_right_enter"
+                app:exitAnim="@anim/anim_slide_left_exit" app:popEnterAnim="@anim/anim_slide_left_enter"
+                app:popExitAnim="@anim/anim_slide_right_exit"/>
+    </fragment>
+
+    <fragment android:id="@+id/flightScheduleMapFragment"
+              android:name="com.aceinteract.flightscheduler.ui.flight.schedule.map.FlightScheduleMapFragment"
+              android:label="Flight Schedule" tools:layout="@layout/flight_schedule_map_fragment"/>
+
+</navigation>

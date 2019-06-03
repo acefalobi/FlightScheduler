@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorSecondary">@color/color_accent</item>
+        <item name="colorAccent">@color/color_accent</item>
+    </style>
+
+    <!-- Splash Theme -->
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+    </style>
+
+
+    <!-- App Bar Themes -->
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat"/>
+
+</resources>

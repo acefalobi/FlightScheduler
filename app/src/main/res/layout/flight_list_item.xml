@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="flight"
+                type="com.aceinteract.flightscheduler.data.entity.FlightSchedule.Flight"/>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:id="@+id/departure_details"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/list_item_padding_horiz"
+                android:paddingEnd="@dimen/list_item_padding_horiz"
+                android:paddingTop="@dimen/list_item_padding_vert"
+                android:paddingBottom="@dimen/list_item_padding_vert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/text_departure_time"
+                    android:text="@{flight.departure.scheduledTime.getTimeInString()}"
+                    android:textColor="@android:color/black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    tools:text="11:00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/text_departure_airport"
+                    android:text="@{flight.departure.airportCode}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    tools:text="LOS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <View
+                android:layout_margin="@dimen/widget_padding"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/departure_details"
+                app:layout_constraintEnd_toStartOf="@id/arrival_details"
+                android:background="@color/color_accent"
+                android:layout_width="0dp"
+                android:layout_height="1dp"/>
+
+        <LinearLayout
+                android:id="@+id/arrival_details"
+                android:gravity="end"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/list_item_padding_horiz"
+                android:paddingEnd="@dimen/list_item_padding_horiz"
+                android:paddingTop="@dimen/list_item_padding_vert"
+                android:paddingBottom="@dimen/list_item_padding_vert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/text_arrival_time"
+                    android:text="@{flight.arrival.scheduledTime.getTimeInString()}"
+                    android:textColor="@android:color/black"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    tools:text="15:00"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/text_arrival_airport"
+                    android:text="@{flight.arrival.airportCode}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    tools:text="JFK"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

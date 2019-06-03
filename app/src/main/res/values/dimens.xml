@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="widget_default_drawable_padding">10dp</dimen>
+    <dimen name="widget_padding">12dp</dimen>
+
+    <dimen name="floating_toolbar_margin">16dp</dimen>
+    <dimen name="floating_toolbar_elevation">4dp</dimen>
+    <dimen name="floating_toolbar_radius">8dp</dimen>
+    <dimen name="floating_toolbar_title_size">20sp</dimen>
+
+    <dimen name="list_item_padding_horiz">24dp</dimen>
+    <dimen name="list_item_padding_vert">16dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

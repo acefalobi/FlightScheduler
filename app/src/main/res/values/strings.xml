@@ -1,8 +1,4 @@
 <resources>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
-        AIzaSyAv6EGZBxARyiKsnGynk-v9UYaqO1a36C0
-    </string>
-
     <string name="app_name">Flight Scheduler</string>
     <string name="hint_search_origin">Where are you travelling from?</string>
     <string name="label_origin">Origin</string>

@@ -1,5 +1,6 @@
 *.iml
 .gradle
+**/google_api_key.xml
 /credentials.properties
 /local.properties
 /.idea/caches

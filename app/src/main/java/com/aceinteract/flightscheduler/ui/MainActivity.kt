@@ -1,9 +1,10 @@
-package com.aceinteract.flightscheduler
+package com.aceinteract.flightscheduler.ui
 
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import com.aceinteract.flightscheduler.R
 
 /**
  * Main home activity containing all fragments and navigation.

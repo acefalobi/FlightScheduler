@@ -6,21 +6,21 @@ import androidx.core.content.edit
 import com.google.android.gms.maps.model.LatLng
 
 /**
- * Utility class for management of Shared Preferences storage
+ * Utility class for management of Shared Preferences storage.
  */
 class StorageUtil(context: Context) {
 
     private var preferences: SharedPreferences = context.getSharedPreferences(STORAGE, Context.MODE_PRIVATE)
 
     /**
-     * Access token saved in and retrieved from shared preferences
+     * Access token saved in and retrieved from shared preferences.
      */
     var accessToken: String
         get() = preferences.getString(ACCESS_TOKEN, "") ?: ""
         set(value) = preferences.edit { putString(ACCESS_TOKEN, value) }
 
     /**
-     * Access token saved in and retrieved from shared preferences
+     * Access token saved in and retrieved from shared preferences.
      */
     var lastCoordinate: LatLng
         get() {

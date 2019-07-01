@@ -12,7 +12,7 @@ class AirlineRemoteRepository(
 ) : BaseRemoteRepository(accessToken) {
 
     /**
-     * Gets and returns Access Token from API.
+     * Gets and returns airline details from API.
      */
     suspend fun getAirline(airlineCode: String): Airline? {
 

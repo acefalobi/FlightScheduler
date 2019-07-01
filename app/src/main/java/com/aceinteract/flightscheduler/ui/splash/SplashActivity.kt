@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.aceinteract.flightscheduler.BuildConfig
-import com.aceinteract.flightscheduler.MainActivity
+import com.aceinteract.flightscheduler.ui.MainActivity
 import com.aceinteract.flightscheduler.data.remote.repository.AuthRemoteRepository
 import com.aceinteract.flightscheduler.util.StorageUtil
 import kotlinx.coroutines.Dispatchers

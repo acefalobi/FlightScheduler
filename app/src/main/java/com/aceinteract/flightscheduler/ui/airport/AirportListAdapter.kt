@@ -25,10 +25,10 @@ class AirportListAdapter(private val onClickCallback: (Airport) -> Unit) :
      * Bind data to view holder.
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val task = getItem(position)
+        val airport = getItem(position)
         holder.apply {
-            bind(onClickCallback, task)
-            itemView.tag = task
+            bind(onClickCallback, airport)
+            itemView.tag = airport
         }
     }
 
